@@ -1,0 +1,36 @@
+{
+  "results": [
+    {
+      "id": 1,
+      "title": "Inception",
+      "vote_average": 8.8,
+      "release_date": "2010-07-16",
+      "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Elliot Page"],
+      "director": "Christopher Nolan"
+    },
+    {
+      "id": 2,
+      "title": "Interstellar",
+      "vote_average": 8.6,
+      "release_date": "2014-11-07",
+      "cast": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"],
+      "director": "Christopher Nolan"
+    },
+    {
+      "id": 3,
+      "title": "The Dark Knight",
+      "vote_average": 9.0,
+      "release_date": "2008-07-18",
+      "cast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"],
+      "director": "Christopher Nolan"
+    },
+    {
+      "id": 4,
+      "title": "Avengers: Endgame",
+      "vote_average": 8.4,
+      "release_date": "2019-04-26",
+      "cast": ["Robert Downey Jr.", "Chris Evans", "Scarlett Johansson"],
+      "director": "Anthony and Joe Russo"
+    }
+  ]
+}
