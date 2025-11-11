@@ -76,4 +76,52 @@ router.get("/movie-info/:id", async (req, res) => {
   }
 });
 
+
+//  FROM HERE I START ADDING NEW FEATURES SO IF ANY PROBLEM HAPPEND DELETE THIS
+ 
+router.get("/search",async (req,res) => {
+  const query=(req.query.q || "").trim();
+  const page = req.query.page || 1;
+
+  if(!query || query.length <2){
+    return res.status(400).json({
+      message:"Search query required and also it should be greater than 2 char"
+    })
+  }
+
+  //Checkk api key is present or else return filterd mock result
+  if(!API_KEY){
+    console.log("No TMDB key");
+    
+    const filterd = mockData.results.filter((m) => (m.title || "").toLowerCase().includes(query.toLowerCase())
+  );
+
+  return res.json({
+    results:filterd
+  });
+  }
+
+  try{
+    console.log(`Searching TMDB for "${query}",page ${page}`);
+
+    const response = await axios.get("https://api.themoviedb.org/3/search/movie",
+      {params: {api_key: API_KEY, query, language:"en-US", page}}
+    );
+
+    return res.json(response.data);
+  }
+  catch (error){
+    console.error("Tmdb searach error",error.message);
+    console.log("Falling back to filtered mock results");
+
+    const filtered= mockData.results.filter((m) => 
+      (m.title || "").toLowerCase().includes(query.toLowerCase())
+    );
+
+    return res.json({
+      results: filtered
+    })
+  }
+})
+
 module.exports = router;
