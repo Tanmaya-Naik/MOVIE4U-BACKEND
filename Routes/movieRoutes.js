@@ -66,6 +66,8 @@ router.get("/movie-info/:id", async (req, res) => {
       release_date: movie.release_date,
       director: director ? director.name : "Unknown",
       cast,
+      poster_path: movie.poster_path,
+      overview: movie.overview
     });
   } catch (error) {
     console.error("❌ Error fetching movie info:", error.message);
